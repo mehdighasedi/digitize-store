@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deigitize Web</title>
+    <link rel="stylesheet" href="./tailwind.css" />
+  </head>
+  <body class="bg-gray-100">
+    <!-- App Bar -->
+    <div class="flex md:hidden items-center justify-between mt-10 px-4 mb-6">
+      <div>logo</div>
+      <div class="text-lg font-bold text-slate-800">ساعت هوشمند</div>
+      <div class="h-7 w-7 bg-white shadow-lg flex items-center justify-center rounded">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-5 h-5 stroke-slate-500"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+          />
+        </svg>
+      </div>
+    </div>
+    <!-- Sort - Filter Bar -->
+    <div class="flex md:hidden items-center justify-between px-4 gap-x-4 mb-9">
+      <div class="bg-white flex items-center justify-start py-2 pr-4 rounded w-1/2">
+        <div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-6 stroke-orange-500"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75"
+            />
+          </svg>
+        </div>
+        <span class="text-sm font-medium text-slate-800 mr-3"> محبوب ترین</span>
+      </div>
+      <div class="bg-white flex items-center justify-start py-2 pr-4 rounded w-1/2">
+        <div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-6 stroke-gray-300"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 0 1-.659 1.591l-5.432 5.432a2.25 2.25 0 0 0-.659 1.591v2.927a2.25 2.25 0 0 1-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 0 0-.659-1.591L3.659 7.409A2.25 2.25 0 0 1 3 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0 1 12 3Z"
+            />
+          </svg>
+        </div>
+        <span class="text-sm font-medium text-slate-800 mr-2">برند : اپل</span>
+      </div>
+    </div>
+    <div class="grid grid-cols-12 md:grid-rows-[55px_minmax(500px, _1fr)] md:gap-8">
+      <!-- SideBar -->
+      <div class="bg-white hidden md:block p-4 col-span-4 lg:col-span-3 row-span-2">sidebar</div>
+      <!-- sort Section -->
+      <div class="bg-white hidden md:block p-4 col-span-8 lg:col-span-9">sortSection</div>
+      <!-- Product section -->
+      <div class="bg-white col-span-12 md:col-span-8 lg:col-span-9">
+        <div
+          x-data="{products : [
+        {id:1 , title : 'اپل واچ سری 8' , price : '12,850,000 تومان'},
+        {id:2 , title : 'اپل واچ سری 2' , price : '11,850,000 تومان'},
+        {id:3 , title : 'اپل واچ سری 3' , price : '12,950,000 تومان'},
+        {id:4 , title : 'اپل واچ سری 4' , price : '12,850,000 تومان'},
+        {id:5 , title : 'اپل واچ سری 9' , price : '19,850,000 تومان'},
+        {id:6 , title : 'اپل واچ سری 10' , price : '20,850,000 تومان'},
+        {id:7 , title : 'اپل واچ سری 7' , price : '17,850,000 تومان'},
+        ]}"
+          class="grid gap-x-2 gap-y-8 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 md:p-0 px-2 sm:gap-x-4 md:gap-x-6 md:gap-y-10"
+        >
+          <template x-for="product in products" :key="product.id">
+            <div class="bg-white rounded-xl p-2 shadow-md">
+              <div class="mb-5 bg-gray-100 rounded-xl p-2">
+                <img src="../assets/img/apple-watch-series-8.png" alt="" />
+              </div>
+              <!-- product description -->
+              <div class="flex items-center justify-between w-full mb-3">
+                <span class="text-slate-200 text-sm md:text-base">اپل</span>
+                <div x-data="{ color: 'red' }" class="flex items-center">
+                  <div
+                    @click="color = 'blue'"
+                    :class="color === 'blue' ? 'ring-2 ring-blue-400' : ''"
+                    class="sm:w-8 sm:h-8 flex items-center justify-center bg-blue-400 w-6 h-6 rounded-full border-2 border-white cursor-pointer"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="size-4 stroke-white sm:w-5 sm:h-5"
+                      x-show="color === 'blue'"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="m4.5 12.75 6 6 9-13.5"
+                      />
+                    </svg>
+                  </div>
+                  <div
+                    @click="color = 'red'"
+                    :class="color === 'red' ? 'ring-2 ring-red-400' : ''"
+                    class="sm:w-8 sm:h-8 bg-red-400 flex items-center justify-center w-6 h-6 rounded-full border-2 border-white cursor-pointer -mr-1.5"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="size-4 stroke-white sm:w-5 sm:h-5"
+                      x-show="color === 'red'"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="m4.5 12.75 6 6 9-13.5"
+                      />
+                    </svg>
+                  </div>
+                  <div
+                    @click="color = 'green'"
+                    :class="color === 'green' ? 'ring-2 ring-green-400' : ''"
+                    class="sm:w-8 sm:h-8 bg-green-400 flex items-center justify-center w-6 h-6 rounded-full border-2 border-white cursor-pointer -mr-1.5"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="size-4 stroke-white sm:w-5 sm:h-5"
+                      x-show="color === 'green'"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="m4.5 12.75 6 6 9-13.5"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              <!-- product title -->
+              <div
+                x-text="product.title"
+                class="text-slate-800 text-xs font-bold mb-2 sm:text-base"
+              ></div>
+              <div
+                x-text="product.price"
+                class="text-orange-800 text-left sm:text-lg text-sm font-medium mb-3"
+              ></div>
+              <hr class="bg-orange-300" />
+              <button class="w-full py-1 text-center text-orange-600 font-bold md:text-lg">
+                مشاهده و سفارش
+              </button>
+            </div>
+          </template>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+  </body>
+</html>
