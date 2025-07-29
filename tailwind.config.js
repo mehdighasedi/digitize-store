@@ -1,6 +1,6 @@
 // tailwind.config.js
 module.exports = {
-  content: ["./src/**/*.{js,ts,jsx,tsx}", "./public/index.html"],
+  content: ["./src/**/*.{js,ts,jsx,tsx}", "./public/**/*.html"],
   theme: {
     extend: {
       fontFamily: {
@@ -8,8 +8,5 @@ module.exports = {
       },
     },
   },
-  plugins: [
-    require("@tailwindcss/forms"),
-  
-  ],
+  plugins: [require("@tailwindcss/forms")],
 };
